@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Haven Arboretum - Home</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top glass-header">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <span class="logo-icon">🌿</span>
+                <span class="brand-text ms-2">Green Haven</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            <li><a class="dropdown-item" href="index.html"><i class="fas fa-leaf me-2"></i>Home 1 - Classic</a></li>
+                            <li><a class="dropdown-item" href="home2.html"><i class="fas fa-spa me-2"></i>Home 2 - Modern</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="garden-map.html"><i class="fas fa-map me-1"></i>Garden Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html"><i class="fas fa-calendar-alt me-1"></i>Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership.html"><i class="fas fa-user-friends me-1"></i>Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="visit.html"><i class="fas fa-info-circle me-1"></i>Visit</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-outline-light btn-sm" type="button" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-sun" id="themeIcon"></i>
+                    </button>
+                    <a href="signup.html" class="btn btn-outline-light btn-sm"><i class="fas fa-user-plus me-1"></i>Signup</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Green Haven</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="homeDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-home me-1"></i>Home
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="homeDropdownMobile">
+                        <li><a class="dropdown-item" href="index.html"><i class="fas fa-leaf me-2"></i>Home 1 - Classic</a></li>
+                        <li><a class="dropdown-item" href="home2.html"><i class="fas fa-spa me-2"></i>Home 2 - Modern</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="garden-map.html"><i class="fas fa-map me-1"></i>Garden Map</a></li>
+                <li class="nav-item"><a class="nav-link" href="events.html"><i class="fas fa-calendar-alt me-1"></i>Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="membership.html"><i class="fas fa-user-friends me-1"></i>Membership</a></li>
+                <li class="nav-item"><a class="nav-link" href="visit.html"><i class="fas fa-info-circle me-1"></i>Visit</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                <li class="nav-item mt-3"><a href="signup.html" class="btn btn-outline-primary w-100"><i class="fas fa-user-plus me-1"></i>Signup</a></li>
+                <li class="nav-item mt-3">
+                    <button class="btn btn-outline-primary w-100" type="button" id="mobileThemeToggle" title="Toggle Theme">
+                        <i class="fas fa-sun" id="mobileThemeIcon"></i> Toggle Theme
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="floating-leaves">
+                <span class="leaf">🍃</span>
+                <span class="leaf">🌿</span>
+                <span class="leaf">🍂</span>
+                <span class="leaf">🍃</span>
+                <span class="leaf">🌿</span>
+                <span class="leaf">🍂</span>
+                <span class="leaf">🍃</span>
+                <span class="leaf">🌿</span>
+                <span class="leaf">🍂</span>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title typing-text" data-text="Green Haven Arboretum">Green Haven Arboretum</h1>
+            <p class="hero-subtitle">Discover Nature's Masterpiece in the Heart of the City</p>
+            <div class="hero-buttons mt-4">
+                <button class="btn hero-btn hero-btn-primary me-3"><i class="fas fa-tree me-2"></i>Visit Garden</button>
+                <button class="btn hero-btn hero-btn-secondary"><i class="fas fa-crown me-2"></i>Become Member</button>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Welcome Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <h2 class="section-title">About Our Garden</h2>
+                    <p class="lead">Green Haven Arboretum is a 50-acre botanical paradise featuring over 2,000 plant species from around the world.</p>
+                    <p>Our carefully curated collections showcase the diversity of plant life, from rare exotic specimens to native wildflowers. Walk through themed gardens, explore our tree collections, and experience the changing seasons in this living museum.</p>
+                    <div class="stats-container mt-4">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50000">0</span>
+                            <span class="stat-label"><i class="fas fa-users me-1"></i>Annual Visitors</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2000">0</span>
+                            <span class="stat-label"><i class="fas fa-seedling me-1"></i>Plant Species</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50">0</span>
+                            <span class="stat-label"><i class="fas fa-mountain me-1"></i>Acres of Beauty</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://picsum.photos/seed/botanical-garden/600/400" alt="Garden View" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Featured Collections</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="collection-card glass-card h-100">
+                        <img src="https://picsum.photos/seed/rose-garden/400/300" alt="Rose Garden" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Rose Garden</h3>
+                            <p class="card-text">Over 200 varieties of roses in full bloom from May to October.</p>
+                            <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right me-1"></i>Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="collection-card glass-card h-100">
+                        <img src="https://picsum.photos/seed/japanese-garden/400/300" alt="Japanese Garden" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Japanese Garden</h3>
+                            <p class="card-text">Tranquil space with traditional elements and seasonal beauty.</p>
+                            <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right me-1"></i>Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="collection-card glass-card h-100">
+                        <img src="https://picsum.photos/seed/tropical-conservatory/400/300" alt="Tropical Conservatory" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Tropical Conservatory</h3>
+                            <p class="card-text">Year-round tropical paradise with exotic plants and waterfalls.</p>
+                            <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right me-1"></i>Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Highlights Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Seasonal Highlights</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="season-card glass-card text-center h-100">
+                        <div class="season-icon">
+                            <i class="fas fa-snowflake fa-3x text-info"></i>
+                        </div>
+                        <h4>Winter</h4>
+                        <p>Evergreen beauty, winter walks, and cozy conservatory visits</p>
+                        <ul class="season-list">
+                            <li><i class="fas fa-check text-success"></i> Winter Garden Tours</li>
+                            <li><i class="fas fa-check text-success"></i> Holiday Light Display</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="season-card glass-card text-center h-100">
+                        <div class="season-icon">
+                            <i class="fas fa-seedling fa-3x text-success"></i>
+                        </div>
+                        <h4>Spring</h4>
+                        <p>Blossoming trees, tulip festivals, and new growth everywhere</p>
+                        <ul class="season-list">
+                            <li><i class="fas fa-check text-success"></i> Cherry Blossom Festival</li>
+                            <li><i class="fas fa-check text-success"></i> Spring Plant Sale</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="season-card glass-card text-center h-100">
+                        <div class="season-icon">
+                            <i class="fas fa-sun fa-3x text-warning"></i>
+                        </div>
+                        <h4>Summer</h4>
+                        <p>Lush gardens, evening concerts, and outdoor activities</p>
+                        <ul class="season-list">
+                            <li><i class="fas fa-check text-success"></i> Summer Concert Series</li>
+                            <li><i class="fas fa-check text-success"></i> Butterfly Garden</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="season-card glass-card text-center h-100">
+                        <div class="season-icon">
+                            <i class="fas fa-leaf fa-3x text-orange"></i>
+                        </div>
+                        <h4>Fall</h4>
+                        <p>Spectacular foliage, harvest festivals, and crisp air walks</p>
+                        <ul class="season-list">
+                            <li><i class="fas fa-check text-success"></i> Fall Foliage Tours</li>
+                            <li><i class="fas fa-check text-success"></i> Harvest Festival</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visitor Experience Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Visitor Experience</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="experience-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="experience-icon text-center">
+                                    <i class="fas fa-walking fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4>Guided Tours</h4>
+                                <p>Join our expert guides for insightful tours through our themed gardens. Learn about plant species, garden history, and conservation efforts.</p>
+                                <button class="btn btn-primary"><i class="fas fa-calendar-plus me-1"></i>Book Tour</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="experience-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="experience-icon text-center">
+                                    <i class="fas fa-graduation-cap fa-4x text-success"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4>Educational Programs</h4>
+                                <p>From children's workshops to adult education classes, we offer learning opportunities for all ages and skill levels.</p>
+                                <button class="btn btn-primary"><i class="fas fa-book-open me-1"></i>View Programs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="experience-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="experience-icon text-center">
+                                    <i class="fas fa-camera fa-4x text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4>Photography</h4>
+                                <p>Capture stunning botanical images in our picturesque gardens. Perfect for amateur and professional photographers alike.</p>
+                                <button class="btn btn-primary"><i class="fas fa-images me-1"></i>Photo Gallery</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="experience-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="experience-icon text-center">
+                                    <i class="fas fa-heart fa-4x text-danger"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4>Wellness Activities</h4>
+                                <p>Find your zen with yoga in the garden, meditation sessions, and therapeutic horticulture programs.</p>
+                                <button class="btn btn-primary"><i class="fas fa-spa me-1"></i>Wellness Programs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Visitors Say</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card glass-card h-100">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="testimonial-text">"Absolutely breathtaking! The rose garden is magnificent and the Japanese garden is so peaceful. A must-visit destination!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/person1/50/50" alt="Sarah M." class="rounded-circle">
+                            <div>
+                                <strong>Sarah M.</strong>
+                                <small class="text-muted">Regular Visitor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card glass-card h-100">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="testimonial-text">"The guided tours are fantastic! Our guide was so knowledgeable and passionate. The kids loved the children's garden!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/person2/50/50" alt="John D." class="rounded-circle">
+                            <div>
+                                <strong>John D.</strong>
+                                <small class="text-muted">Family Visitor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card glass-card h-100">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="testimonial-text">"Perfect for photography enthusiasts! Every season offers something new and beautiful. The conservatory is amazing in winter."</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/person3/50/50" alt="Emily R." class="rounded-circle">
+                            <div>
+                                <strong>Emily R.</strong>
+                                <small class="text-muted">Photography Club Member</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conservation Efforts Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Conservation & Research</h2>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <img src="https://picsum.photos/seed/conservation/600/400" alt="Conservation Research" class="img-fluid rounded-3 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <div class="conservation-list">
+                        <div class="conservation-item">
+                            <i class="fas fa-dna text-primary"></i>
+                            <div>
+                                <h5>Genetic Preservation</h5>
+                                <p>Banking rare and endangered plant species for future generations</p>
+                            </div>
+                        </div>
+                        <div class="conservation-item">
+                            <i class="fas fa-microscope text-success"></i>
+                            <div>
+                                <h5>Research Programs</h5>
+                                <p>Studying plant adaptations and climate change resilience</p>
+                            </div>
+                        </div>
+                        <div class="conservation-item">
+                            <i class="fas fa-hands-helping text-warning"></i>
+                            <div>
+                                <h5>Community Outreach</h5>
+                                <p>Educating the public about conservation and sustainable practices</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Preview -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Upcoming Events</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="event-preview-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="event-date-preview">
+                                    <div class="date-day">28</div>
+                                    <div class="date-month">JAN</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4><i class="fas fa-binoculars text-primary me-2"></i>Bird Watching Walk</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-clock me-1"></i>8:00 AM - 10:00 AM</p>
+                                <p class="mb-3">Join our naturalist for early morning bird watching in the woodland trail.</p>
+                                <button class="btn btn-outline-primary btn-sm"><i class="fas fa-ticket-alt me-1"></i>Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="event-preview-card glass-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="event-date-preview">
+                                    <div class="date-day">05</div>
+                                    <div class="date-month">FEB</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h4><i class="fas fa-paint-brush text-success me-2"></i>Botanical Art Workshop</h4>
+                                <p class="text-muted mb-2"><i class="fas fa-clock me-1"></i>2:00 PM - 4:00 PM</p>
+                                <p class="mb-3">Learn botanical illustration techniques from professional artists.</p>
+                                <button class="btn btn-outline-primary btn-sm"><i class="fas fa-ticket-alt me-1"></i>Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="events.html" class="btn btn-success btn-lg"><i class="fas fa-calendar-alt me-2"></i>View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <div class="footer-brand">
+                        <span class="logo-icon">🌿</span>
+                        <span class="brand-text ms-2">Green Haven</span>
+                    </div>
+                    <p class="mt-3">Your gateway to botanical wonder and natural beauty.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="garden-map.html">Garden Map</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="visit.html">Visit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Visit Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Newsletter</h5>
+                    <p>Stay updated with our latest events and garden news.</p>
+                    <div class="subscribe-section">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="text-center">
+                <p>&copy; 2026 Green Haven Arboretum. All rights reserved.</p>
+            </div>
+        </div>
+        <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
