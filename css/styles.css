@@ -888,19 +888,6 @@ html:not([data-theme="dark"]) .offcanvas .nav-link.active {
         max-width: 100% !important;
         flex: 0 0 100% !important;
     }
-    
-    /* Make community-stat items full width in mobile */
-    .community-hub-section .community-stats {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .community-hub-section .community-stat {
-        width: 100% !important;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
 }
 
 /* Membership benefits responsive layout */
