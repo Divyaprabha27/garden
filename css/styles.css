@@ -791,6 +791,127 @@ p {
     transform: translateX(3px);
 }
 
+/* Mobile signup button styling */
+.offcanvas .btn-primary {
+    background: linear-gradient(135deg, var(--leaf-green), var(--deep-green)) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(74, 124, 89, 0.3);
+    transition: all 0.3s ease;
+}
+
+.offcanvas .btn-primary:hover {
+    background: linear-gradient(135deg, var(--deep-green), var(--leaf-green-dark)) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
+    color: white !important;
+}
+
+/* Mobile menu items spacing and active state styling */
+.offcanvas .navbar-nav {
+    padding: 1rem 0;
+}
+
+.offcanvas .nav-item {
+    margin-bottom: 0.75rem;
+}
+
+.offcanvas .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: var(--border-radius);
+    margin: 0.25rem 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.offcanvas .nav-link:hover {
+    background-color: var(--bg-secondary);
+    transform: translateX(5px);
+}
+
+.offcanvas .nav-link.active {
+    background-color: var(--leaf-green);
+    color: white !important;
+    border-bottom: none !important;
+}
+
+/* Light mode active state styling */
+html:not([data-theme="dark"]) .offcanvas .nav-link.active {
+    background-color: var(--leaf-green) !important;
+    color: white !important;
+}
+
+/* Remove border bottom from active nav link in mobile menu */
+.offcanvas .nav-link.active::after {
+    display: none !important;
+}
+
+/* Events page register button alignment for mobile and tablet */
+@media (max-width: 991.98px) {
+    .events-section .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .events-section .event-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .events-section .event-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .events-section .event-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    
+    .events-section .event-tags {
+        margin-top: auto;
+    }
+    
+    .events-section .event-card .btn {
+        margin-top: auto !important;
+        align-self: stretch;
+    }
+}
+
+/* Digital Community Hub responsive layout */
+@media (max-width: 991.98px) {
+    .community-hub-section .row .col-lg-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+    
+    /* Make community-stat items full width in mobile */
+    .community-hub-section .community-stats {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .community-hub-section .community-stat {
+        width: 100% !important;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Membership benefits responsive layout */
+@media (max-width: 991.98px) {
+    .benefits-section .row .col-md-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
 /* Light mode footer enhancements */
 html:not([data-theme="dark"]) .footer h5 {
     color: #1a4d2e !important;

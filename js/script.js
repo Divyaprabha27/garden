@@ -283,10 +283,10 @@ function initializeCounters() {
                     
                     if (count < target) {
                         const displayValue = Math.ceil(count);
-                        counter.textContent = hasPlusSign ? `+${displayValue.toLocaleString()}` : displayValue.toLocaleString();
+                        counter.textContent = hasPlusSign ? `${displayValue.toLocaleString()}+` : displayValue.toLocaleString();
                         requestAnimationFrame(updateCount);
                     } else {
-                        counter.textContent = hasPlusSign ? `+${target.toLocaleString()}` : target.toLocaleString();
+                        counter.textContent = hasPlusSign ? `${target.toLocaleString()}+` : target.toLocaleString();
                     }
                 };
                 
