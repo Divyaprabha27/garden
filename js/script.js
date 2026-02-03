@@ -274,6 +274,7 @@ function initializeCounters() {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = parseInt(counter.getAttribute('data-target'));
+                const hasPlusSign = counter.textContent.includes('+');
                 let count = 0;
                 
                 const updateCount = () => {
@@ -281,10 +282,11 @@ function initializeCounters() {
                     count += increment;
                     
                     if (count < target) {
-                        counter.textContent = Math.ceil(count);
+                        const displayValue = Math.ceil(count);
+                        counter.textContent = hasPlusSign ? `+${displayValue.toLocaleString()}` : displayValue.toLocaleString();
                         requestAnimationFrame(updateCount);
                     } else {
-                        counter.textContent = target.toLocaleString();
+                        counter.textContent = hasPlusSign ? `+${target.toLocaleString()}` : target.toLocaleString();
                     }
                 };
                 

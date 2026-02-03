@@ -176,6 +176,7 @@
             text-align: center;
             margin: 2rem 0;
             position: relative;
+            z-index: 1;
         }
 
         .divider::before {
@@ -186,13 +187,16 @@
             right: 0;
             height: 1px;
             background: #e0e0e0;
+            z-index: -1;
         }
 
         .divider span {
             background: rgba(255, 255, 255, 0.95);
-            padding: 0 1rem;
+            padding: 0.5rem 1rem;
             color: var(--text-muted);
             font-size: 0.9rem;
+            border-radius: 20px;
+            display: inline-block;
         }
 
         .social-buttons {
@@ -345,7 +349,6 @@
     <div class="bg-decoration bg-decoration-2"></div>
     <div class="bg-decoration bg-decoration-3"></div>
 
-    <!-- Theme Toggle Button -->
     <button class="theme-toggle-top" id="themeToggle" title="Toggle Theme">
         <i class="fas fa-sun" id="themeIcon"></i>
     </button>
@@ -354,8 +357,10 @@
     <div class="login-container">
         <!-- Logo Section -->
         <div class="logo-section">
-            <div class="logo-icon">🌿</div>
-            <h1 class="brand-text">Green Haven</h1>
+            <a href="index.html" class="navbar-brand d-flex align-items-center justify-content-center text-decoration-none">
+                <span class="logo-icon">🌿</span>
+                <span class="brand-text ms-2">Green Haven</span>
+            </a>
             <p class="tagline">Welcome back to our botanical community</p>
         </div>
 
