@@ -3,11 +3,11 @@ let currentTheme = localStorage.getItem('theme') || 'light'; // Use saved theme 
 let isScrolling = false;
 
 // ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Use saved theme preference
     currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
     initializeTheme();
     initializeScrollAnimations();
     initializeTypingEffect();
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeResponsiveFixes() {
     // Prevent horizontal scroll
     preventHorizontalScroll();
-    
+
     // Fix mobile viewport issues
     fixMobileViewport();
-    
+
     // Handle window resize
     window.addEventListener('resize', debounce(() => {
         preventHorizontalScroll();
@@ -53,7 +53,7 @@ function fixMobileViewport() {
     // Fix mobile viewport height issues
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
+
     // Update on resize
     window.addEventListener('resize', () => {
         const vh = window.innerHeight * 0.01;
@@ -66,7 +66,7 @@ function initializeTheme() {
     // Apply saved theme
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateThemeToggle();
-    
+
     // Add click event to desktop theme toggle button
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
@@ -74,7 +74,7 @@ function initializeTheme() {
             toggleTheme();
         });
     }
-    
+
     // Add click event to mobile theme toggle button
     const mobileThemeToggle = document.getElementById('mobileThemeToggle');
     if (mobileThemeToggle) {
@@ -82,7 +82,7 @@ function initializeTheme() {
             toggleTheme();
         });
     }
-    
+
     // Add keyboard shortcut for theme toggle (Ctrl/Cmd + Shift + D)
     document.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
@@ -97,13 +97,13 @@ function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
     localStorage.setItem('theme', currentTheme);
     updateThemeToggle();
-    
+
     // Add smooth transition effect
     document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-    
+
     // Update all theme-aware components
     updateThemeComponents();
-    
+
     // Show theme change notification
     showThemeNotification(currentTheme);
 }
@@ -119,13 +119,13 @@ function updateThemeComponents() {
     cards.forEach(card => {
         card.style.transition = 'background-color 0.3s ease, border-color 0.3s ease';
     });
-    
+
     // Update forms
     const forms = document.querySelectorAll('.form-control, .form-select');
     forms.forEach(form => {
         form.style.transition = 'background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease';
     });
-    
+
     // Update navbar
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -143,7 +143,7 @@ function updateThemeToggle() {
             themeIcon.className = 'fas fa-sun';
         }
     }
-    
+
     // Update mobile theme toggle icon
     const mobileThemeIcon = document.getElementById('mobileThemeIcon');
     if (mobileThemeIcon) {
@@ -161,7 +161,7 @@ function showThemeNotification(theme) {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     const notification = document.createElement('div');
     notification.className = 'theme-notification';
     notification.innerHTML = `
@@ -185,14 +185,14 @@ function showThemeNotification(theme) {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         font-weight: 600;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Remove after 2 seconds
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
@@ -221,7 +221,7 @@ function debounce(func, wait) {
 function initializeMobileMenu() {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const offcanvas = document.querySelector('.offcanvas');
-    
+
     if (navbarToggler && offcanvas) {
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
@@ -232,7 +232,7 @@ function initializeMobileMenu() {
                 }
             }
         });
-        
+
         // Close menu on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -263,12 +263,12 @@ function initializeTypingEffect() {
 function initializeCounters() {
     const counters = document.querySelectorAll('.stat-number');
     const speed = 200;
-    
+
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px'
     };
-    
+
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -276,11 +276,11 @@ function initializeCounters() {
                 const target = parseInt(counter.getAttribute('data-target'));
                 const hasPlusSign = counter.textContent.includes('+');
                 let count = 0;
-                
+
                 const updateCount = () => {
                     const increment = target / speed;
                     count += increment;
-                    
+
                     if (count < target) {
                         const displayValue = Math.ceil(count);
                         counter.textContent = hasPlusSign ? `${displayValue.toLocaleString()}+` : displayValue.toLocaleString();
@@ -289,13 +289,13 @@ function initializeCounters() {
                         counter.textContent = hasPlusSign ? `${target.toLocaleString()}+` : target.toLocaleString();
                     }
                 };
-                
+
                 updateCount();
                 counterObserver.unobserve(counter);
             }
         });
     }, observerOptions);
-    
+
     counters.forEach(counter => {
         counterObserver.observe(counter);
     });
@@ -304,12 +304,12 @@ function initializeCounters() {
 // ===== SCROLL ANIMATIONS =====
 function initializeScrollAnimations() {
     const animatedElements = document.querySelectorAll('.glass-card, .benefit-item, .collection-card');
-    
+
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -318,7 +318,7 @@ function initializeScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     animatedElements.forEach(element => {
         scrollObserver.observe(element);
     });
@@ -327,7 +327,7 @@ function initializeScrollAnimations() {
 // ===== BACK TO TOP BUTTON =====
 function initializeBackToTop() {
     const backToTopButton = document.getElementById('backToTop');
-    
+
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
             backToTopButton.classList.add('show');
@@ -335,7 +335,7 @@ function initializeBackToTop() {
             backToTopButton.classList.remove('show');
         }
     });
-    
+
     backToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -348,7 +348,7 @@ function initializeBackToTop() {
 function initializeGardenMap() {
     const zones = document.querySelectorAll('.garden-zone');
     const zoneDetails = document.getElementById('zoneDetails');
-    
+
     const zoneInfo = {
         entrance: {
             title: 'Main Entrance',
@@ -399,12 +399,12 @@ function initializeGardenMap() {
             hours: '11:00 AM - 4:00 PM'
         }
     };
-    
+
     zones.forEach(zone => {
         zone.addEventListener('click', () => {
             const zoneName = zone.getAttribute('data-zone');
             const info = zoneInfo[zoneName];
-            
+
             if (info && zoneDetails) {
                 zoneDetails.innerHTML = `
                     <h4>${info.title}</h4>
@@ -419,7 +419,7 @@ function initializeGardenMap() {
                         <strong>Hours:</strong> ${info.hours}
                     </div>
                 `;
-                
+
                 // Add highlight animation
                 zoneDetails.classList.add('fade-in-up');
                 setTimeout(() => {
@@ -427,12 +427,12 @@ function initializeGardenMap() {
                 }, 800);
             }
         });
-        
+
         // Add hover effect
         zone.addEventListener('mouseenter', () => {
             zone.style.transform = 'scale(1.05)';
         });
-        
+
         zone.addEventListener('mouseleave', () => {
             zone.style.transform = 'scale(1)';
         });
@@ -443,11 +443,11 @@ function initializeGardenMap() {
 function initializeEventFilters() {
     const filterButtons = document.querySelectorAll('[data-filter]');
     const eventItems = document.querySelectorAll('.event-item');
-    
+
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const filter = button.getAttribute('data-filter');
-            
+
             // Update active button
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
@@ -457,7 +457,7 @@ function initializeEventFilters() {
             button.classList.add('active');
             button.classList.remove('btn-outline-primary');
             button.classList.add('btn-primary');
-            
+
             // Filter events
             eventItems.forEach(item => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
@@ -475,36 +475,36 @@ function initializeEventFilters() {
 function initializeCalendar() {
     const calendarDays = document.querySelector('.calendar-days');
     if (!calendarDays) return;
-    
+
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    
+
     // Event dates (example)
     const eventDates = [15, 18, 22, 25, 28, 30];
-    
+
     // Add empty cells for days before month starts
     for (let i = 0; i < firstDay; i++) {
         const emptyDay = document.createElement('div');
         emptyDay.className = 'calendar-day empty';
         calendarDays.appendChild(emptyDay);
     }
-    
+
     // Add days of the month
     for (let day = 1; day <= daysInMonth; day++) {
         const dayElement = document.createElement('div');
         dayElement.className = 'calendar-day';
         dayElement.textContent = day;
-        
+
         if (eventDates.includes(day)) {
             dayElement.classList.add('has-event');
         }
-        
+
         dayElement.addEventListener('click', () => {
             showDayEvents(day);
         });
-        
+
         calendarDays.appendChild(dayElement);
     }
 }
@@ -518,14 +518,14 @@ function showDayEvents(day) {
 function initializeMembershipForm() {
     const form = document.getElementById('membershipForm');
     if (!form) return;
-    
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Basic validation
         const requiredFields = form.querySelectorAll('[required]');
         let isValid = true;
-        
+
         requiredFields.forEach(field => {
             if (!field.value.trim()) {
                 field.classList.add('is-invalid');
@@ -534,14 +534,14 @@ function initializeMembershipForm() {
                 field.classList.remove('is-invalid');
             }
         });
-        
+
         if (isValid) {
             // Show success message
             showSuccessMessage('Thank you for joining Green Haven! We\'ll send you a confirmation email shortly.');
             form.reset();
         }
     });
-    
+
     // Add real-time validation
     const inputs = form.querySelectorAll('.form-control, .form-select');
     inputs.forEach(input => {
@@ -558,12 +558,12 @@ function initializeMembershipForm() {
 // ===== NEWSLETTER FORMS =====
 function initializeNewsletterForms() {
     const newsletterForms = document.querySelectorAll('.newsletter-form');
-    
+
     newsletterForms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const email = form.querySelector('input[type="email"]').value;
-            
+
             if (email && validateEmail(email)) {
                 showSuccessMessage('Thank you for subscribing to our newsletter!');
                 form.reset();
@@ -594,12 +594,12 @@ function showMessage(message, type) {
     if (existingMessage) {
         existingMessage.remove();
     }
-    
+
     // Create message element
     const messageElement = document.createElement('div');
     messageElement.className = `message-toast message-${type}`;
     messageElement.textContent = message;
-    
+
     // Add styles
     messageElement.style.cssText = `
         position: fixed;
@@ -614,14 +614,14 @@ function showMessage(message, type) {
         transition: transform 0.3s ease;
         ${type === 'success' ? 'background: linear-gradient(135deg, #4caf50, #8bc34a);' : 'background: linear-gradient(135deg, #f44336, #ff6b9d);'}
     `;
-    
+
     document.body.appendChild(messageElement);
-    
+
     // Animate in
     setTimeout(() => {
         messageElement.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Remove after 3 seconds
     setTimeout(() => {
         messageElement.style.transform = 'translateX(400px)';
@@ -634,17 +634,17 @@ function showMessage(message, type) {
 // ===== SMOOTH SCROLL =====
 function initializeSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
                 const headerHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -657,21 +657,21 @@ function initializeSmoothScroll() {
 // ===== PARALLAX EFFECT =====
 function initializeParallax() {
     const parallaxElements = document.querySelectorAll('.parallax-layer');
-    
+
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset;
-                
+
                 parallaxElements.forEach(element => {
                     const speed = element.getAttribute('data-speed') || 0.5;
                     const yPos = -(scrolled * speed);
                     element.style.transform = `translateY(${yPos}px)`;
                 });
-                
+
                 isScrolling = false;
             });
-            
+
             isScrolling = true;
         }
     });
@@ -681,7 +681,7 @@ function initializeParallax() {
 function initializeFloatingLeaves() {
     const floatingContainer = document.querySelector('.floating-leaves');
     if (!floatingContainer) return;
-    
+
     // Create multiple floating leaves
     for (let i = 0; i < 8; i++) {
         const leaf = document.createElement('div');
@@ -700,7 +700,7 @@ function initializeFloatingLeaves() {
 }
 
 // ===== MOBILE MENU ENHANCEMENTS =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Close mobile menu when clicking outside
     const offcanvasElement = document.getElementById('navbarOffcanvas');
     if (offcanvasElement) {
@@ -713,16 +713,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Add active state to navigation based on current page
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-        if (linkPath && currentPath.includes(linkPath) && linkPath !== 'index.html') {
+        // Handle Home pages and others
+        if (linkPath && currentPath.includes(linkPath) && linkPath !== '#') {
             link.classList.add('active');
-        } else if (linkPath === 'index.html' && currentPath.endsWith('/')) {
+        } else if (linkPath === 'index.html' && (currentPath.endsWith('/') || currentPath === '')) {
             link.classList.add('active');
         }
     });
@@ -731,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===== LAZY LOADING FOR IMAGES =====
 function initializeLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -742,7 +743,7 @@ function initializeLazyLoading() {
             }
         });
     });
-    
+
     images.forEach(img => {
         imageObserver.observe(img);
     });
@@ -776,7 +777,7 @@ function initializeAccessibility() {
         zone.setAttribute('tabindex', '0');
         zone.setAttribute('role', 'button');
         zone.setAttribute('aria-label', `Garden zone ${index + 1}`);
-        
+
         zone.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -784,7 +785,7 @@ function initializeAccessibility() {
             }
         });
     });
-    
+
     // Add ARIA labels for dynamic content
     const zoneDetails = document.getElementById('zoneDetails');
     if (zoneDetails) {
